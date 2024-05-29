@@ -1,5 +1,7 @@
 package com.prueba.pruebatecnica.viewmodel
 
+import android.content.ContentValues.TAG
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.prueba.pruebatecnica.data.model.User
@@ -22,7 +24,7 @@ class UserViewModel(private val userRepository: UserRepository): ViewModel() {
                 val userList = userRepository.getUsers(2)
                 _users.value = userList
             } catch (e: Exception) {
-
+                Log.e(TAG, "Error al recuperar usuarios", e)
             }
         }
     }
